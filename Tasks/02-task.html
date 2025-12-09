@@ -9,37 +9,28 @@
 </head>
 
 <body>
-
-    <h3>Вычисление объёма цилиндра</h3>
-
-    
-    <label>Радиус (r): </label>
-    <input type="number" id="radius">
-
-   
-    <label>Высота (h): </label>
-    <input type="number" id="height">
-
-   
-    <button id="calcBtn">Рассчитать</button>
-
-    <p id="result"></p>
-
     <script>
+        /*
+        Задание:
+        Напишите сценарий, который будет обновлять сущность post со свойствами
+        id: 1,
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
 
+        Создайте форму с полем ввода для значения свойства title и полем ввода для значения свойства body
 
-        document.getElementById("calcBtn").onclick = function () {
+        Значения для свойств title и body получите от пользователя
+        Значения id и userId должны остаться равными 1 и выводить их в форме не нужно.
+        При загрузке сценария заполните форму данными получеными при обработке GET запроса на https://jsonplaceholder.typicode.com/posts/1
 
-            let r = +document.getElementById("radius").value;
-            let h = +document.getElementById("height").value;
+        адрес для отправки запроса
+        https://jsonplaceholder.typicode.com/posts/1
 
-            let volume = Math.PI * r * r * h;
-
-            document.getElementById("result").innerHTML =
-                "Объём цилиндра: " + volume.toFixed(2);
-        }
+        для обновления сущности воспользуйтесь PUT запросом https://jsonplaceholder.typicode.com/posts/1. Обработайте ответ
+        и выведите информацию о ошибке или об успешно завершенной операции.
+        */
     </script>
-
 </body>
 
 </html>
