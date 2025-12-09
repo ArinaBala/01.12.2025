@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,38 +9,26 @@
 </head>
 
 <body>
-
-
-    <button id="testBtn" onclick="showMessage1()">Test Button</button>
-
+    <button id="button1">Запрос</button>
+    <div id="output"></div>
     <script>
-      
-        function showMessage1() {
-            alert('Сработал inline-обработчик (onclick)');
-        }
+    
+        let button1 = document.querySelector("#button1");
+        let output = document.querySelector("#output");
+        let url = "https://jsonplaceholder.typicode.com/todos/100000";
+
+        button1.addEventListener("click", function () {
+            fetch(url)
+                .then(response => response.json())  
+                .then(json => {
+                    output.innerHTML = "";
+                    output.innerHTML += "<br>id: " + json.id;
+                    output.innerHTML += "<br>user id: " + json.userId;
+                    output.innerHTML += "<br>title: " + json.title;
+                    output.innerHTML += "<br>completed: " + json.completed;
+                });
+        });
     </script>
-
-    <script>
-       
-        let btn = document.querySelector("#testBtn");
-
-        btn.onclick = showMessage2;
-
-        function showMessage2() {
-            alert('Сработал обработчик через свойство .onclick');
-        }
-    </script>
-
-    <script>
-       
-        let btn2 = document.getElementById("testBtn");
-
-        btn2.addEventListener("click", showMessage3);
-
-        function showMessage3() {
-            alert('Сработал обработчик через addEventListener');
-        }
-    </script>
-
 </body>
+
 </html>
